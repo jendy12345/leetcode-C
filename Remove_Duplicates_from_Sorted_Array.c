@@ -1,7 +1,10 @@
 int removeDuplicates(int* nums, int numsSize){
     int index=0;
     for(int i=0;i<numsSize;i++){
-        if(i==0 || nums[i]>nums[i-1]){  // 在程式碼中，nums[i-1]表示和上一個數去做比對，如果有重複的數則移除，當i=0(目前為數組的第一個元素)或當前元素nums[i]大於前一個元素nums[i-1]時，將nums[i]複製到新的數組當中。
+        if(i==0 || nums[i]>nums[i-1]){  /* 在程式碼中，nums[i-1]表示和上一個數去做比對，如果有重複的數則移除，
+                                        當i=0(目前為數組的第一個元素)或當前元素nums[i]大於前一個元素nums[i-1]時，
+                                        將nums[i]複製到新的數組當中。
+                                        */
             nums[index++] = nums[i];
         }
     }
@@ -12,9 +15,9 @@ int removeDuplicates(int* nums, int numsSize){
 #include<stdlib.h>
 
 int removeDuplicates(int* nums, int numsSize){
-int index = 0;
-for(int i = 0; i < numsSize; i++){
-    if(i==0 || nums[i] > nums[i-1]){
+int index = 0;    // 要存取移除後的數字
+for(int i = 0; i < numsSize; i++){    
+    if(i==0 || nums[i] > nums[i-1]){    // 如果i==0 或是 nums陣列中的下一個數比前一個數小，則將數字移除
         nums[index++] = nums[i];
     }
 }
