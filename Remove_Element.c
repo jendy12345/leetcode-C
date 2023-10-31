@@ -17,3 +17,43 @@ int removeElement(int* nums, int numsSize, int val){
     }
     return newSize;
 }
+
+
+// new code
+#include<stdio.h>
+#include<stdlib.h>
+
+int removeElement(int* nums, int numsSize, int val){
+    if(nums == NULL){
+        return 0;
+    }
+    int count = 0;
+    int newSize = numsSize;
+    for(int i = 0; i < numsSize; i++){
+        if(nums[i] == val){
+            count ++;
+            newSize--;
+        }
+        else{
+            nums[i-count] = nums[i];
+        }
+    }
+    return newSize;
+}
+
+int main(){
+    int numSize = 4;
+    int nums[] = {0,1,2,2,3,0,4,2};
+    int val = 2;
+    int result = removeElement(nums,numSize,val);
+    printf("%d\n",result);
+    printf("output： %d,nums=[",result);
+    for(int i=0;i<result;i++){
+        printf("%d",nums[i]);
+        if(i < result - 1){
+            printf(",");
+        }
+    }
+    printf("]\n");
+    return 0;
+}
